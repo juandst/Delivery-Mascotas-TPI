@@ -1,5 +1,5 @@
 const App = () => {
-  return <div>TP INTEGRADOR</div>;
+return <div>Cambio</div>;
 };
 
 export default App;

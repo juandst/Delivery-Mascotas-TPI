@@ -1,5 +1,5 @@
 const App = () => {
-return <div>Boxes_</div>;
+return <div>Desde Terminal</div>;
 };
 
 export default App;

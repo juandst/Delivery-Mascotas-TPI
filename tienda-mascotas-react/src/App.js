@@ -5,7 +5,7 @@ import "./components/products/Products.css";
 
 const App = () => {
 
-  const Products = 
+  const dProducts = 
   [
     {
       id: 1,

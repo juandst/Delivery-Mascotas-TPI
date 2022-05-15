@@ -3,36 +3,34 @@ import ProductItem from './ProductItem';
 import "./Products.css";
 import "./ProductItem.css";
 
-const Products = ({ products }) => {
+const Products = ({ dProducts }) => {
   
     return (
       <div>
         <ProductItem
-          id={products[0].id}
-          img={products[0].img}
-          name={products[0].name}
-          price={products[0].price}
-          quality={products[0].quality}
-          action={products[0].action}
+          id={dProducts[0].id}
+          img={dProducts[0].img}
+          name={dProducts[0].name}
+          price={dProducts[0].price}
+          quality={dProducts[0].quality}
+          action={dProducts[0].action}
 
         />
         <ProductItem
-        id={products[1].id}
-        img={products[1].img}
-        name={products[1].name}
-        price={products[1].price}
-        quality={products[1].quality}
-        action={products[1].action}
+        id={dProducts[1].id}
+        img={dProducts[1].img}
+        name={dProducts[1].name}
+        price={dProducts[1].price}
+        quality={dProducts[1].quality}
+        action={dProducts[1].action}
         />
         <ProductItem
-          id={products[2].id}
-          img={products[2].img}
-          name={products[2].name}
-          price={products[2].price}
-          quality={products[2].quality}
-          action={products[2].action}
-        />
-                  
+          id={dProducts[2].id}
+          img={dProducts[2].img}
+          name={dProducts[2].name}
+          price={dProducts[2].price}
+          quality={dProducts[2].quality}
+          action={dProducts[2].action}        />
       </div>
     );
 }

@@ -14,6 +14,7 @@ const Products = ({ products }) => {
           price={products[0].price}
           quality={products[0].quality}
           action={products[0].action}
+
         />
         <ProductItem
         id={products[1].id}
@@ -31,6 +32,7 @@ const Products = ({ products }) => {
           quality={products[2].quality}
           action={products[2].action}
         />
+                  
       </div>
     );
 }

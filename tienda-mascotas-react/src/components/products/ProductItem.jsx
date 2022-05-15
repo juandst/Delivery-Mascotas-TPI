@@ -1,5 +1,5 @@
 import React from 'react';
-import Products from './Products.jsx';
+import Products from './Products';
 import './ProductItem.css';
 
 const ProductItem = ({ id, img, name, price, quality, action }) => {
@@ -12,7 +12,7 @@ const ProductItem = ({ id, img, name, price, quality, action }) => {
         <h3>{quality}</h3>    
         <h3>{action}</h3>    
     </div>
-  )
+  );
 }
 
 export default ProductItem

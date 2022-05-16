@@ -1,7 +1,6 @@
 import Products from "./components/products/Products";
 
 import "./App.css";
-import "./components/products/Products.css";
 
 const App = () => {
   const testProducts = [

@@ -7,7 +7,7 @@ const Products = ({ productList }) => {
   });
 
   return (
-    <div>
+    <div className="wrapper">
       {productsMapped.length === 0 ? <h1>No hay productos</h1> : productsMapped}
     </div>
   );

@@ -21,12 +21,51 @@ h3 {
 }
 
 button {
-    background-color: rgb(85, 188, 65);
-    color: black;
-    border: 2px solid #adcdae; /* Green; */
-    margin-bottom: 5px;
+    
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+   
+  }
+
+  button:hover {
+      background-color: green;
+      color: white;
+  }
+
+  .brand {
+    margin-bottom: 10px; 
+  }
+
+  .left {
+    float: left;
+}
+
+  .name {
+      font-size: 2rem;
+  }
+
+  .desc {
+      font-size: 1.5rem;
+      margin-left: 5px;
   }
 
 .upper {
     text-transform: uppercase;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
 }

@@ -1,5 +1,4 @@
 import Products from "./components/products/Products";
-
 import "./App.css";
 
 const App = () => {
@@ -7,21 +6,21 @@ const App = () => {
     {
       id: 1,
       img: "",
-      name: "Nutri Care Ad x22",
-      price: 4990,
+      name: "Proplan Adult Complete x15",
+      price: 7890,
       quality: "5",
     },
     {
       id: 2,
       img: "",
-      name: "Producto 2",
+      name: "Medium Adult x15",
       price: 1234,
       quality: "5",
     },
     {
       id: 3,
       img: "",
-      name: "Producto 3",
+      name: "Eukanuba Adult MB x15",
       price: 5678,
       quality: "5",
     },

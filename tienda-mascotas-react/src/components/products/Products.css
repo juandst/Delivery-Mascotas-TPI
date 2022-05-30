@@ -1,18 +1,7 @@
-.cajas-body {
-  background-color: black;
-  color: blanchedalmond;
-  font-family: "Inconsolata", monospace;
-}
-
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   text-align: center;
-
-  /*
-    display: flex;
-    justify-content: space-between;
-    */
 }
 .neon-green {
   color: #ccff00;

@@ -28,9 +28,10 @@ const App = () => {
 
   return (
     <div>
-      <h2>Delivery Mascotas</h2>
-      <h3>Tienda online</h3>
-      <h3 className="neon-green">probando branch</h3>
+      <nav>
+        <h2>Delivery Mascotas</h2>
+        <h3>Tienda online</h3>
+      </nav>
       <Products productList={testProducts} />
     </div>
   );

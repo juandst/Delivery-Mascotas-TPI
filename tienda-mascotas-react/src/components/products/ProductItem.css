@@ -20,7 +20,7 @@
 
 .title-field {
   width: auto;
-  height: 25%;
+  height: 100%;
 }
 
 .price-field {
@@ -42,6 +42,8 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+/* not in use */
 
 .desc-field {
   width: auto;

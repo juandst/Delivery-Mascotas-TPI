@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
+import "../../App.css";
 
 export default function OptionsMenu({ opc }) {
   return (
-    <div>
-      {
-        <Link to={opc.path}>
-          <li>{opc.label}</li>
-        </Link>
-      }
-    </div>
+    <ul>
+      <Link to={opc.path} style={{ textDecoration: "none" }}>
+        <li>{opc.label}</li>
+      </Link>
+    </ul>
   );
 }

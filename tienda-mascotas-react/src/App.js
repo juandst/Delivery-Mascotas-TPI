@@ -8,7 +8,7 @@ const App = () => {
   const [options, setOptions] = useState([
     {
       path: "/",
-      label: "Home",
+      label: "DELIVERY MASCOTAS",
     },
     {
       path: "/login",

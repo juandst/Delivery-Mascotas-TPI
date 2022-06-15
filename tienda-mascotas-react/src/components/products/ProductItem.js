@@ -13,7 +13,7 @@ const ProductItem = ({ id, title, price, description, image }) => {
       <button className="buy-button" onClick={buttonHandler}>
         COMPRAR
       </button>
-      <Link to={"/product/" + id}>
+      <Link to={"/product/" + id} style={{ textDecoration: "none" }}>
         <button className="rev-button">EXAMINAR</button>
       </Link>
     </div>

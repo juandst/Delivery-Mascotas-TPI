@@ -4,17 +4,12 @@
 body {
   background-color: #ffffff;
   font-family: "Oswald", sans-serif;
+  text-decoration: none;
 }
 
 h2 {
   font-size: 2rem;
   text-transform: uppercase;
-}
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #efb810;
 }
 
 /* Products.js */
@@ -68,7 +63,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 100%;
   height: auto;
   background-color: #efb810;
   border-radius: 5px;
@@ -158,3 +153,38 @@ width: 250px;
 */
 
 /* OptionsMenu.js */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  padding: 0.5rem 0rem;
+  color: black;
+  box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
+  background-color: #efb810;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.nav-wrapper li {
+  display: block;
+  list-style: none;
+  color: black;
+  background-color: #d6a40f;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-wrapper li:hover {
+  background-color: #bd8f08;
+}
+nav ul li a {
+  text-decoration: none;
+}

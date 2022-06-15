@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../../App.css";
 
-const ProductItem = ({ id, title, price, description, image }) => {
+const ProductItem = ({ id, title, price, image }) => {
   const buttonHandler = () => {
     console.log("button clicked");
   };

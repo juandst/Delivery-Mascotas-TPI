@@ -3,8 +3,8 @@ import OptionsMenu from "./OptionsMenu";
 const Menu = ({ options }) => {
   return (
     <div>
-      {options.map((opction, index) => (
-        <OptionsMenu key={index} opc={opction} />
+      {options.map((option, index) => (
+        <OptionsMenu key={index} opc={option} />
       ))}
     </div>
   );

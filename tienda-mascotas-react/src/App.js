@@ -14,15 +14,15 @@ const App = () => {
       path: "/login",
       label: "Login",
     },
+    {
+      path: "/register",
+      label: "Register",
+    },
   ]);
 
   return (
     <BrowserRouter>
-      <nav>
-        <h2>Delivery Mascotas</h2>
-        <h3>Tienda online</h3>
-        <Menu options={options} />
-      </nav>
+      <Menu options={options} />
       <RoutesWeb />
     </BrowserRouter>
   );

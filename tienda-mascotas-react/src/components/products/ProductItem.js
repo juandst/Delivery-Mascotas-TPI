@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./ProductItem.css";
+import "../../App.css";
 
 const ProductItem = ({ id, title, price, description, image }) => {
   const buttonHandler = () => {
@@ -14,7 +14,7 @@ const ProductItem = ({ id, title, price, description, image }) => {
         COMPRAR
       </button>
       <Link to={"/product/" + id}>
-        <button>EXAMINAR</button>
+        <button className="rev-button">EXAMINAR</button>
       </Link>
     </div>
   );

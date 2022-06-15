@@ -1,5 +1,5 @@
 import ProductItem from "./ProductItem";
-import "./Products.css";
+import "../../App.css";
 
 const Products = ({ productList }) => {
   const productsMapped = productList.map((product) => {

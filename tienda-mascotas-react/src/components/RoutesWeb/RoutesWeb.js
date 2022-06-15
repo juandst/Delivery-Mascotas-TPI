@@ -15,6 +15,7 @@ const RoutesWeb = () => {
           element={
             <div>
               <p>🤔🤔🤔🤔</p>
+              <p>Algo salió mal</p>
             </div>
           }
         />

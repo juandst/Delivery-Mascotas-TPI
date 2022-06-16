@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "XE/gAKRsoy6pUq22vJfuQFW1YPczguR+NbEG3K7i7BKkJpMdX5S7HzszXHb0/pJDz7PqO7T0HQxGV2Jv8FHydw==",
+  "success": true,
+  "projectFilePath": "F:\\repositories\\TP-Integrador---LdC-III-P3\\tiendas-mascotas-aspnet\\tiendas-mascotas-aspnet\\tiendas-mascotas-aspnet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\juanl\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\juanl\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\juanl\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\juanl\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\juanl\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\juanl\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

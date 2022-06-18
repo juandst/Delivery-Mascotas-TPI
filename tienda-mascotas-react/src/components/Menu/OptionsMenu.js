@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import "../../App.css";
+import Nav from "react-bootstrap/Nav";
 
 export default function OptionsMenu({ opc }) {
   return (
-    <ul>
-      <Link to={opc.path} style={{ textDecoration: "none" }}>
-        <li>{opc.label}</li>
-      </Link>
-    </ul>
+    <Nav.Link
+      as={Link}
+      to={opc.path}
+      style={{ color: "black", fontWeight: "bold" }}
+    >
+      {opc.label}
+    </Nav.Link>
   );
 }

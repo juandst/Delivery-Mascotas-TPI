@@ -7,16 +7,12 @@ import "./App.css";
 const App = () => {
   const [options, setOptions] = useState([
     {
-      path: "/",
-      label: "DELIVERY MASCOTAS",
-    },
-    {
       path: "/login",
-      label: "Login",
+      label: "Ingresar",
     },
     {
       path: "/register",
-      label: "Register",
+      label: "Registrarse",
     },
   ]);
 

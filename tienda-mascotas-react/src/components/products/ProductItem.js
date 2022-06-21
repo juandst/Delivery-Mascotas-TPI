@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+import { Button, Card, Container, Row, Col } from "react-bootstrap";
 import "../../App.css";
 
 const ProductItem = ({ id, title, price, image }) => {
@@ -7,21 +7,29 @@ const ProductItem = ({ id, title, price, image }) => {
     console.log("button clicked");
   };
   return (
-    <div className="product-item-container">
-      <img className="img-field" src={image} alt=""></img>
-      <h2 className="title-field">{title}</h2>
-      <h3 className="price-field">{price} $</h3>
-      <div className="button-container">
-        <Button variant="warning" onClick={buttonHandler}>
-          COMPRAR
-        </Button>
-        <Link to={"/product/" + id} style={{ textDecoration: "none" }}>
-          <Button variant="warning" className="rev-button">
-            VER
-          </Button>
-        </Link>
-      </div>
-    </div>
+    <>
+      <Card style={{ width: "18rem" }}>
+        <Card.Img variant="top" src={image} />
+        <Card.Body>
+          <Card.Title>{title}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{price} $</Card.Subtitle>
+          <Container>
+            <Row className="justify-content-md-center">
+              <Col>
+                <Button variant="warning" onClick={buttonHandler}>
+                  COMPRAR
+                </Button>
+              </Col>
+              <Col>
+                <Button variant="warning" as={Link} to={"/product/" + id}>
+                  VER
+                </Button>
+              </Col>
+            </Row>
+          </Container>
+        </Card.Body>
+      </Card>
+    </>
   );
 };
 

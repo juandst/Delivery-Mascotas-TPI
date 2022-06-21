@@ -1,5 +1,5 @@
-import useFetch from "../hooks/useFetch.js";
-import Products from "../products/Products.js";
+import useFetch from "../components/hooks/useFetch.js";
+import Products from "../components/products/Products";
 
 const Home = () => {
   const {

@@ -15,4 +15,4 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 firebase.auth = firebase.auth();
 firebase.db = db;
-export default firebase; // Run: git update-index --assume-unchanged // credentials should be set on demand
+export default firebase;

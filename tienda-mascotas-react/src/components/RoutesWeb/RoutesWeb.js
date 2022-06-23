@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import ProductDetail from "../products/ProductDetail";
+import Home from "../../pages/Home";
+import Login from "../../pages/Login";
+import Register from "../../pages/Register";
+import ProductDetail from "../../pages/ProductDetail";
 
 const RoutesWeb = () => {
   return (

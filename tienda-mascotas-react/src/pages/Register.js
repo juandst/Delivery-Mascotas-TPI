@@ -107,7 +107,7 @@ const Register = () => {
           <FormGroup type="password" placeholder="Contraseña" name="password" value={form.password} onChange={handleChange}>
             Contraseña
           </FormGroup>
-          <ButtonWithLoading text="Registrarse" loading={spinner} variant="danger" type="submit" />
+          <ButtonWithLoading text="Registrarse" loading={spinner} variant="warning" type="submit" />
         </Form>
         <AlertCustom variant={alert.variant} text={alert.text} />
       </Card.Body>

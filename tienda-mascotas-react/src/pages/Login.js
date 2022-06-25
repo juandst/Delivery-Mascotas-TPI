@@ -27,8 +27,7 @@ const Login = () => {
       .then((data) => {
         setSpinner(false);
         setAlert({ variant: "success", text: "Bienvenido" });
-        if (data.user.uid === "FFRlLBkncOWTzbOza9gv7iNwT7l1") context.setUserAsAdmin();
-        context.loginUser();
+        context.loginUser(data.user.uid);
         navigate("/");
       })
       .catch((error) => {
@@ -60,7 +59,7 @@ const Login = () => {
             Contraseña
           </FormGroup>
 
-          <ButtonWithLoading text="Ingresar" loading={spinner} variant="danger" type="submit" />
+          <ButtonWithLoading text="Ingresar" loading={spinner} variant="warning" type="submit" />
         </Form>
         <AlertCustom variant={alert.variant} text={alert.text} />
       </Card.Body>

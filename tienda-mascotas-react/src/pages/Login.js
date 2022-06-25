@@ -1,5 +1,6 @@
 import firebase from "../config/firebase";
-import { useState } from "react";
+import NetContext from "../context/NetContext";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, Form } from "react-bootstrap";
 import FormGroup from "../components/forms/FormGroup";
@@ -7,6 +8,7 @@ import ButtonWithLoading from "../components/forms/ButtonWithLoading";
 import AlertCustom from "../components/forms/AlertCustom";
 
 const Login = () => {
+  const context = useContext(NetContext);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -23,9 +25,10 @@ const Login = () => {
     firebase.auth
       .signInWithEmailAndPassword(email, password)
       .then((data) => {
-        console.log("Login exitoso", data);
         setSpinner(false);
         setAlert({ variant: "success", text: "Bienvenido" });
+        if (data.user.uid === "FFRlLBkncOWTzbOza9gv7iNwT7l1") context.setUserAsAdmin();
+        context.loginUser();
         navigate("/");
       })
       .catch((error) => {

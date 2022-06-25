@@ -2,7 +2,7 @@ import firebase from "../config/firebase";
 import NetContext from "../context/NetContext";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 export default function ProductDetail() {
   const [product, setProduct] = useState("");
@@ -27,21 +27,21 @@ export default function ProductDetail() {
   return (
     <NetContext.Consumer>
       {(context) => (
-        (
-          <Link to={"/"}>
-            <button>Volver</button>
-          </Link>
-        ),
         error && <p>{error}</p>,
         isLoading && <div>Cargando datos...</div>,
         product && (
-          <div>
-            <h1>{product.data().name}</h1>
-            <p>{product.data().description}</p>
-            <p>$ {product.data().price}</p>
-            <img src={product.data().image} alt=""></img>
-            {context.login && <Button variant="warning">COMPRAR</Button>}
-          </div>
+          <Card border="warning" style={{ width: "80%", margin: "auto", marginTop: "50px" }}>
+            <Card.Body>
+              <Card.Img variant="top" src={product.data().image} />
+              <Card.Title>{product.data().name}</Card.Title>
+              <Card.Text>{product.data().description}</Card.Text>
+              <Card.Footer>$ {product.data().price}</Card.Footer>
+              {context.login && <Button variant="warning">COMPRAR</Button>}
+              <Link to={"/"}>
+                <Button>Volver</Button>
+              </Link>
+            </Card.Body>
+          </Card>
         )
       )}
     </NetContext.Consumer>

@@ -30,18 +30,22 @@ export default function ProductDetail() {
         error && <p>{error}</p>,
         isLoading && <div>Cargando datos...</div>,
         product && (
-          <Card border="warning" style={{ width: "80%", margin: "auto", marginTop: "50px" }}>
-            <Card.Body>
-              <Card.Img variant="top" src={product.data().image} />
-              <Card.Title>{product.data().name}</Card.Title>
-              <Card.Text>{product.data().description}</Card.Text>
-              <Card.Footer>$ {product.data().price}</Card.Footer>
-              {context.login && <Button variant="warning">COMPRAR</Button>}
-              <Link to={"/"}>
-                <Button>Volver</Button>
-              </Link>
-            </Card.Body>
-          </Card>
+          <>
+            <Link to={"/"}>
+              <Button variant="warning" style={{ marginTop: "10px" }}>
+                Volver
+              </Button>
+            </Link>
+            <Card border="warning" style={{ width: "80%", margin: "auto", marginTop: "50px" }}>
+              <Card.Body>
+                <Card.Img variant="top" src={product.data().image} />
+                <Card.Title>{product.data().name}</Card.Title>
+                <Card.Text>{product.data().description}</Card.Text>
+                <Card.Footer>$ {product.data().price}</Card.Footer>
+                {context.login && <Button variant="warning">COMPRAR</Button>}
+              </Card.Body>
+            </Card>
+          </>
         )
       )}
     </NetContext.Consumer>

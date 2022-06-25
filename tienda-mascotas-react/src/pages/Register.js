@@ -59,6 +59,7 @@ const Register = () => {
             apellido: form.apellido,
             email: form.email,
             userId: data.user.uid,
+            isAdmin: false,
           })
           .then(() => {
             setSpinner(false);

@@ -12,7 +12,7 @@ const ProductItem = ({ id, name, price, image }) => {
       <NetContext.Consumer>
         {(context) => (
           <Card style={{ width: "18rem", margin: "10px" }}>
-            <Card.Img variant="top" src={image} />
+            <Card.Img variant="top" src={image} width="250" height="250" />
             <Card.Body>
               <Card.Title>{name}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{price} $</Card.Subtitle>

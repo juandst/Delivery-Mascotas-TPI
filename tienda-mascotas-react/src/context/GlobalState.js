@@ -6,7 +6,8 @@ const GlobalState = ({ children }) => {
   const [login, setLogin] = useState(localStorage.getItem("login"));
   const [isAdmin, setIsAdmin] = useState(false);
 
-  const loginUser = () => {
+  const loginUser = (uid) => {
+    if (uid === "B1HJgC4yj1R6GMHH5hRxnmL3ZjC3") setUserAsAdmin();
     setLogin(true);
     localStorage.setItem("login", true);
   };
@@ -29,7 +30,6 @@ const GlobalState = ({ children }) => {
         loginUser: loginUser,
         logoutUser: logoutUser,
         isAdmin: isAdmin,
-        setUserAsAdmin: setUserAsAdmin,
       }}
     >
       {children}

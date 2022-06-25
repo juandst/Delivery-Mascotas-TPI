@@ -1,29 +1,33 @@
 import OptionsMenu from "./OptionsMenu";
-import { Link } from "react-router-dom";
+import NetContext from "../../context/NetContext";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import NavBarBrand from "../nav/NavBarBrand";
 
-const Menu = ({ options }) => {
+const Menu = () => {
   return (
     <>
-      <Navbar bg="bg-danger" variant="dark">
-        <Container>
-          <Navbar.Brand as={Link} to={"/"} style={{ color: "black" }}>
-            <img
-              src="https://cdn.discordapp.com/attachments/989026778741899287/989027599529418802/1494353.png"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-              alt="WEB-LOGO"
-            />{" "}
-            DELIVERY MASCOTAS
-          </Navbar.Brand>
-          <Nav className="me-auto">
-            {options.map((option, index) => (
-              <OptionsMenu key={index} opc={option} />
-            ))}
-          </Nav>
-        </Container>
-      </Navbar>
+      <NetContext.Consumer>
+        {(context) => (
+          <Navbar bg="bg-danger" variant="dark">
+            <Container>
+              <Nav className="me-auto">
+                <NavBarBrand></NavBarBrand>
+                {context.login && (
+                  <Nav.Link onClick={context.logoutUser} style={{ color: "black", fontWeight: "bold" }}>
+                    Salir
+                  </Nav.Link>
+                )}
+                {!context.login && (
+                  <>
+                    <OptionsMenu opc={{ label: "Ingresar", path: "/login" }} />
+                    <OptionsMenu opc={{ label: "Registro", path: "/register" }} />
+                  </>
+                )}
+              </Nav>
+            </Container>
+          </Navbar>
+        )}
+      </NetContext.Consumer>
     </>
   );
 };

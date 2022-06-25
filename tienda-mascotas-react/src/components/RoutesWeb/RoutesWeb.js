@@ -5,6 +5,7 @@ import Register from "../../pages/Register";
 import ProductDetail from "../../pages/ProductDetail";
 import ProductAlta from "../../pages/ProductAlta";
 import ProductEdit from "../../pages/ProductEdit";
+import NotFound from "../../pages/NotFound";
 import NetContext from "../../context/NetContext";
 
 const RoutesWeb = () => {
@@ -26,15 +27,7 @@ const RoutesWeb = () => {
               <Route path="/product/edit/:id" element={<ProductEdit />} />
             </>
           )}
-          <Route
-            path="*"
-            element={
-              <div>
-                <p>🤔🤔🤔🤔</p>
-                <p>Algo salió mal</p>
-              </div>
-            }
-          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       )}
     </NetContext.Consumer>

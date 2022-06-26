@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import firebase from "../config/firebase";
+import { getProduct, updateProduct, deleteProduct } from "../services/ProductServices";
 import { Card, Form, Button } from "react-bootstrap";
 import FormGroup from "../components/forms/FormGroup";
 import AlertCustom from "../components/forms/AlertCustom";
@@ -12,12 +12,9 @@ export default function ProductEdit() {
   const [alert, setAlert] = useState({ variant: "", text: "" });
   const [spinner, setSpinner] = useState(false);
   useEffect(() => {
-    firebase.db
-      .doc("productos/" + id)
-      .get()
-      .then((doc) => {
-        setDatos(doc.data());
-      });
+    getProduct(id).then((doc) => {
+      setDatos(doc.data());
+    });
   }, [id]);
 
   const handleChange = (e) => {
@@ -33,17 +30,7 @@ export default function ProductEdit() {
     e.preventDefault();
     setSpinner(true);
     console.log(datos);
-    firebase.db
-      .doc("productos/" + id)
-      .set(
-        {
-          name: datos.name,
-          price: datos.price,
-          image: datos.image,
-          description: datos.description,
-        },
-        { merge: true }
-      )
+    updateProduct(id, datos)
       .then((doc) => {
         console.log(doc);
         setAlert({ variant: "success", text: "Producto editado con exito" });
@@ -57,9 +44,7 @@ export default function ProductEdit() {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    firebase.db
-      .doc("productos/" + id)
-      .delete()
+    deleteProduct(id)
       .then(() => {
         setAlert({ variant: "success", text: "Producto eliminado con exito" });
       })

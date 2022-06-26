@@ -1,9 +1,9 @@
-import firebase from "../config/firebase";
 import { useState } from "react";
 import { Card, Form } from "react-bootstrap";
 import FormGroup from "../components/forms/FormGroup";
 import ButtonWithLoading from "../components/forms/ButtonWithLoading";
 import AlertCustom from "../components/forms/AlertCustom";
+import { addUserToDb, createUser } from "../services/UsersServices";
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -48,19 +48,10 @@ const Register = () => {
     setSpinner(true);
     let email = form.email;
     let password = form.password;
-    firebase.auth
-      .createUserWithEmailAndPassword(email, password)
+    createUser(email, password)
       .then((data) => {
         console.log("Usuario creado con éxito");
-        firebase.db
-          .collection("usuarios")
-          .add({
-            nombre: form.nombre,
-            apellido: form.apellido,
-            email: form.email,
-            userId: data.user.uid,
-            isAdmin: false,
-          })
+        addUserToDb(data, form)
           .then(() => {
             setSpinner(false);
             setAlert({ variant: "success", text: "Usuario creado con éxito" });

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import firebase from "../config/firebase";
 import AlertCustom from "../components/forms/AlertCustom";
 import FormGroup from "../components/forms/FormGroup";
 import ButtonWithLoading from "../components/forms/ButtonWithLoading";
 import { Link } from "react-router-dom";
 import { Card, Button, Form } from "react-bootstrap";
+import { createProduct } from "../services/ProductServices";
 
 export default function ProductAlta() {
   const [datos, setDatos] = useState({ name: "", price: "", image: "", description: "" });
@@ -47,14 +47,11 @@ export default function ProductAlta() {
 
     console.log(datos);
     setSpinner(true);
-    firebase.db
-      .collection("productos")
-      .add(datos)
-      .then((doc) => {
-        console.log(doc);
-        setAlert({ variant: "success", text: "Producto creado con éxito" });
-        setSpinner(false);
-      });
+    createProduct(datos).then((doc) => {
+      console.log(doc);
+      setAlert({ variant: "success", text: "Producto creado con éxito" });
+      setSpinner(false);
+    });
   };
 
   return (

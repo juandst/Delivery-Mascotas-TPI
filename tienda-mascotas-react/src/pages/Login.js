@@ -1,4 +1,3 @@
-import firebase from "../config/firebase";
 import NetContext from "../context/NetContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +5,7 @@ import { Card, Form } from "react-bootstrap";
 import FormGroup from "../components/forms/FormGroup";
 import ButtonWithLoading from "../components/forms/ButtonWithLoading";
 import AlertCustom from "../components/forms/AlertCustom";
+import { authUser } from "../services/UsersServices";
 
 const Login = () => {
   const context = useContext(NetContext);
@@ -22,8 +22,7 @@ const Login = () => {
     setSpinner(true);
     let email = form.email;
     let password = form.password;
-    firebase.auth
-      .signInWithEmailAndPassword(email, password)
+    authUser(email, password)
       .then((data) => {
         setSpinner(false);
         setAlert({ variant: "success", text: "Bienvenido" });

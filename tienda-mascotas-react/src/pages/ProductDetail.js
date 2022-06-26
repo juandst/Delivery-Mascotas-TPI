@@ -1,5 +1,5 @@
-import firebase from "../config/firebase";
 import NetContext from "../context/NetContext";
+import { getProduct } from "../services/ProductServices";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
@@ -12,9 +12,7 @@ export default function ProductDetail() {
   const id = useParams().id;
 
   useEffect(() => {
-    firebase.db
-      .doc("productos/" + id)
-      .get()
+    getProduct(id)
       .then((doc) => {
         setProduct(doc);
         setIsLoading(false);

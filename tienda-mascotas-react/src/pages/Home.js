@@ -1,5 +1,6 @@
 import Products from "../components/products/Products";
-import firebase from "../config/firebase";
+import Loading from "../components/forms/Loading";
+import { getProducts } from "../services/ProductServices";
 import { useState, useEffect } from "react";
 
 const Home = () => {
@@ -7,19 +8,18 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
-    firebase.db
-      .collection("productos")
-      .get()
+    getProducts()
       .then((query) => {
         setProducts(query.docs);
         setIsLoading(false);
-      });
+      })
+      .catch((err) => setError(err));
   }, []);
 
   return (
     <div>
       {error && <p>{error}</p>}
-      {isLoading && <div>Cargando datos...</div>}
+      {isLoading && <Loading />}
       {products && <Products productList={products} />}
     </div>
   );

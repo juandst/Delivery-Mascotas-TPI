@@ -1,6 +1,6 @@
 import NetContext from "./NetContext";
-import firebase from "../config/firebase";
 import { useState } from "react";
+import { signOutUser } from "../services/UsersServices";
 
 const GlobalState = ({ children }) => {
   const [login, setLogin] = useState(localStorage.getItem("login"));
@@ -15,7 +15,7 @@ const GlobalState = ({ children }) => {
   const logoutUser = () => {
     setLogin(false);
     localStorage.removeItem("login");
-    firebase.auth.signOut();
+    signOutUser();
     if (isAdmin) setIsAdmin(false);
   };
 

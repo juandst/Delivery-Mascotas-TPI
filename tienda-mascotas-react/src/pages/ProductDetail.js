@@ -1,4 +1,5 @@
 import NetContext from "../context/NetContext";
+import Loading from "../components/forms/Loading";
 import { getProduct } from "../services/ProductServices";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -26,7 +27,7 @@ export default function ProductDetail() {
     <NetContext.Consumer>
       {(context) => (
         error && <p>{error}</p>,
-        isLoading && <div>Cargando datos...</div>,
+        isLoading && <Loading />,
         product && (
           <>
             <Link to={"/"}>

@@ -1,6 +1,7 @@
 import NetContext from "../context/NetContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Card, Form } from "react-bootstrap";
 import FormGroup from "../components/forms/FormGroup";
 import ButtonWithLoading from "../components/forms/ButtonWithLoading";
@@ -36,9 +37,7 @@ const Login = () => {
       });
   };
   const handleChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
-
+    const { name, value } = e.target;
     setForm({
       ...form,
       [name]: value,
@@ -62,6 +61,9 @@ const Login = () => {
         </Form>
         <AlertCustom variant={alert.variant} text={alert.text} />
       </Card.Body>
+      <Card.Footer>
+        ¿No tienes una cuenta? <Link to={"/register"}>Crea una</Link>
+      </Card.Footer>
     </Card>
   );
 };

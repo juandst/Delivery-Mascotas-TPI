@@ -3,6 +3,7 @@ import { Card, Form } from "react-bootstrap";
 import FormGroup from "../components/forms/FormGroup";
 import ButtonWithLoading from "../components/forms/ButtonWithLoading";
 import AlertCustom from "../components/forms/AlertCustom";
+import { Link } from "react-router-dom";
 import { addUserToDb, createUser } from "../services/UsersServices";
 
 const Register = () => {
@@ -69,8 +70,7 @@ const Register = () => {
       });
   };
   const handleChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
+    const { name, value } = e.target;
 
     setForm({
       ...form,
@@ -102,6 +102,9 @@ const Register = () => {
         </Form>
         <AlertCustom variant={alert.variant} text={alert.text} />
       </Card.Body>
+      <Card.Footer>
+        ¿Ya tienes una cuenta? <Link to={"/login"}>Inicia sesión</Link>
+      </Card.Footer>
     </Card>
   );
 };

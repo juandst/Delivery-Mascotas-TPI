@@ -18,8 +18,7 @@ export default function ProductEdit() {
   }, [id]);
 
   const handleChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
+    const { name, value } = e.target;
     setDatos({
       ...datos,
       [name]: value,

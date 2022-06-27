@@ -12,8 +12,7 @@ export default function ProductAlta() {
   const [spinner, setSpinner] = useState(false);
   let errFlag;
   const handleChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
+    const { name, value } = e.target;
 
     setDatos({
       ...datos,

@@ -1,36 +1,34 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
+import NotFound from "../pages/NotFound";
+import ProductDetail from "../pages/ProductDetail";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import ProductDetail from "../pages/ProductDetail";
 import ProductAlta from "../pages/ProductAlta";
 import ProductEdit from "../pages/ProductEdit";
-import NotFound from "../pages/NotFound";
 import NetContext from "../context/NetContext";
+import { useContext } from "react";
 
 const RoutesWeb = () => {
+  const context = useContext(NetContext);
   return (
-    <NetContext.Consumer>
-      {(context) => (
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {!context.login && (
-            <>
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </>
-          )}
-          <Route path="/product/:id" element={<ProductDetail />} />
-          {context.isAdmin && (
-            <>
-              <Route path="/product/alta" element={<ProductAlta />} />
-              <Route path="/product/edit/:id" element={<ProductEdit />} />
-            </>
-          )}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="*" element={<NotFound />} />
+      <Route path="/product/:id" element={<ProductDetail />} />
+      {!context.login && (
+        <>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </>
       )}
-    </NetContext.Consumer>
+      {context.isAdmin && (
+        <>
+          <Route path="/product/alta" element={<ProductAlta />} />
+          <Route path="/product/edit/:id" element={<ProductEdit />} />
+        </>
+      )}
+    </Routes>
   );
 };
 

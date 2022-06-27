@@ -2,6 +2,7 @@ import Products from "../components/products/Products";
 import Loading from "../components/forms/Loading";
 import { getProducts } from "../services/ProductServices";
 import { useState, useEffect } from "react";
+import { Container } from "react-bootstrap";
 
 const Home = () => {
   const [products, setProducts] = useState(null);
@@ -20,7 +21,11 @@ const Home = () => {
     <div>
       {error && <p>{error}</p>}
       {isLoading && <Loading />}
-      {products && <Products productList={products} />}
+      {products && (
+        <Container className="product-item-container">
+          <Products productList={products} />
+        </Container>
+      )}
     </div>
   );
 };

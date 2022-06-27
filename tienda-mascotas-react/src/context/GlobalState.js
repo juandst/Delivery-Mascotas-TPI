@@ -7,20 +7,23 @@ const GlobalState = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const loginUser = (uid) => {
-    if (uid === "B1HJgC4yj1R6GMHH5hRxnmL3ZjC3") setUserAsAdmin();
+    checkUserPrivileges(uid);
     setLogin(true);
     localStorage.setItem("login", true);
   };
 
   const logoutUser = () => {
     setLogin(false);
+    if (isAdmin) setIsAdmin(false);
     localStorage.removeItem("login");
     signOutUser();
-    if (isAdmin) setIsAdmin(false);
   };
 
-  const setUserAsAdmin = () => {
-    setIsAdmin(true);
+  const checkUserPrivileges = (uid) => {
+    if (uid === "B1HJgC4yj1R6GMHH5hRxnmL3ZjC3") {
+      setIsAdmin(true);
+    }
+    return;
   };
 
   return (

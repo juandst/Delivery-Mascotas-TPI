@@ -194,3 +194,73 @@ nav {
 nav ul li a {
   text-decoration: none;
 }
+
+/* context dark */
+
+/* 
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #212933;
+  color: snow;
+}
+
+#body2 {
+  background: rgb(129, 13, 151);
+  background: linear-gradient(
+    90deg,
+    rgba(129, 13, 151, 0.7011846975118172) 52%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.name {
+  color: #e3ff00;
+}
+
+.lime {
+  color: #e3ff00;
+}
+
+.buttom-lime {
+  background-color: #e3ff00;
+  color: green;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.bg-violet {
+    background-color: #9F00FF;
+  }
+
+.violet {
+  color: #9F00FF;
+}
+
+ .orange {
+    color: #ff2301;
+ }
+
+ .buttom-orange {
+    background-color: #ff2301;
+    color: green;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .turquoise {
+    color: #5dc1b9;
+  }
+
+  .buttom-turquoise {
+    background-color: #5dc1b9;
+    color: snow;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  */

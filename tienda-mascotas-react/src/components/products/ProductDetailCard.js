@@ -17,6 +17,7 @@ export default function ProductDetailCard({ product }) {
           <Card.Img
             variant="top"
             src={product.data().image}
+            alt="IMG"
             style={{ maxWidth: "25%", height: "auto", display: "block", marginLeft: "auto", marginRight: "auto" }}
           />
           <Card.Title>{product.data().name}</Card.Title>

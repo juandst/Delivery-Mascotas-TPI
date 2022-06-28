@@ -37,7 +37,11 @@ export default function ProductDetail() {
         </Link>
         <Card border="warning" style={{ width: "80%", margin: "auto", marginTop: "50px" }}>
           <Card.Body>
-            <Card.Img variant="top" src={product.data().image} />
+            <Card.Img
+              variant="top"
+              src={product.data().image}
+              style={{ maxWidth: "25%", height: "auto", display: "block", marginLeft: "auto", marginRight: "auto" }}
+            />
             <Card.Title>{product.data().name}</Card.Title>
             <Card.Text>{product.data().description}</Card.Text>
             <Card.Footer>$ {product.data().price}</Card.Footer>

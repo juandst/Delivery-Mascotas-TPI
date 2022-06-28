@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button, Card, Container, Row, Col } from "react-bootstrap";
 import NetContext from "../../context/NetContext";
-import "../../App.css";
 
 const ProductItem = ({ id, name, price, image }) => {
   const buttonHandler = () => {
@@ -11,7 +10,7 @@ const ProductItem = ({ id, name, price, image }) => {
     <>
       <NetContext.Consumer>
         {(context) => (
-          <Card style={{ width: "18rem", margin: "10px" }}>
+          <Card className="card-container" as={Link} to={"/product/" + id}>
             <Card.Img variant="top" src={image} width="250" height="250" />
             <Card.Body>
               <Card.Title>{name}</Card.Title>
@@ -34,12 +33,6 @@ const ProductItem = ({ id, name, price, image }) => {
                       )}
                     </>
                   )}
-
-                  <Col>
-                    <Button variant="warning" as={Link} to={"/product/" + id}>
-                      VER
-                    </Button>
-                  </Col>
                 </Row>
               </Container>
             </Card.Body>

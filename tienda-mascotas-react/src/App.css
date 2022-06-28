@@ -23,6 +23,19 @@ h2 {
   height: auto;
 }
 
+.card-container {
+  width: 90%;
+  margin: 10px;
+  box-shadow: 0 1px 1px 1px #efb810;
+  text-decoration: none;
+  color: black;
+}
+
+.card-container:hover {
+  box-shadow: 0 0.5px 0.5px 0.5px rgba(9, 9, 9, 0.23);
+  color: black;
+}
+
 .img-field {
   width: 10%;
   height: 10%;

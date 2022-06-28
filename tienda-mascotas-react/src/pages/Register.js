@@ -5,6 +5,7 @@ import ButtonWithLoading from "../components/forms/ButtonWithLoading";
 import AlertCustom from "../components/forms/AlertCustom";
 import { Link } from "react-router-dom";
 import { addUserToDb, createUser } from "../services/UsersServices";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -16,6 +17,7 @@ const Register = () => {
   const [alert, setAlert] = useState({ variant: "", text: "" });
   const [spinner, setSpinner] = useState(false);
   let errFlag = false;
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,7 +57,10 @@ const Register = () => {
         addUserToDb(data, form)
           .then(() => {
             setSpinner(false);
-            setAlert({ variant: "success", text: "Usuario creado con éxito" });
+            setAlert({ variant: "success", text: "Usuario creado con éxito, redirigiendo a la página de inicio de sesión..." });
+            setTimeout(() => {
+              navigate("/login");
+            }, 2000);
           })
           .catch((err) => {
             console.log(err);

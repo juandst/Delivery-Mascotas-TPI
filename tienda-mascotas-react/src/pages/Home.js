@@ -18,7 +18,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {error && <p>{error}</p>}
       {isLoading && <Loading />}
       {products && (
@@ -26,7 +26,7 @@ const Home = () => {
           <Products productList={products} />
         </Container>
       )}
-    </div>
+    </>
   );
 };
 

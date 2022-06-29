@@ -31,8 +31,11 @@ h2 {
   color: black;
 }
 
+/* make a product card */
 .card-container:hover {
   box-shadow: 0 0.5px 0.5px 0.5px rgba(9, 9, 9, 0.23);
+  transform: scale(1.02);
+  transition: 0.3s;
   color: black;
 }
 
@@ -49,9 +52,12 @@ h2 {
   height: 50px;
 }
 
-.img-field {
-  width: 10%;
-  height: 10%;
+.img-details {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title-field {
@@ -100,6 +106,7 @@ h2 {
   height: 25%;
   overflow-y: scroll;
 }
+
 /* old 
 .product-item-container {
 width: 250px;

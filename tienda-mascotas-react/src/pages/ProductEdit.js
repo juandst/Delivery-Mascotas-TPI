@@ -69,9 +69,8 @@ export default function ProductEdit() {
             <FormGroup name="image" type="url" value={datos.image} onChange={handleChange}>
               Imagen:
             </FormGroup>
-            <FormGroup name="description" type="text" value={datos.description} onChange={handleChange}>
-              Descripción:
-            </FormGroup>
+            <Form.Label>Descripción: </Form.Label>
+            <Form.Control as="textarea" rows={3} name="description" type="text" value={datos.description} onChange={handleChange} />
             <ButtonWithLoading text="Guardar" loading={spinner} variant="warning" type="submit" />
             <Button variant="warning" onClick={handleDelete} style={{ marginTop: "10px", marginLeft: "10px" }}>
               Eliminar

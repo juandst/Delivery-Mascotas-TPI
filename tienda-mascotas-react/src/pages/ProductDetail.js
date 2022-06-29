@@ -2,7 +2,7 @@ import Loading from "../components/forms/Loading";
 import { getProduct } from "../services/ProductServices";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import ProductDetailCard from "../components/products/ProductDetailCard";
+import ProductDetailCard from "../components/products/items/ProductDetailCard";
 
 export default function ProductDetail() {
   const [product, setProduct] = useState("");

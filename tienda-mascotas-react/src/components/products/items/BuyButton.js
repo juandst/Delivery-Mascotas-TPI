@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 
 const BuyButton = () => {
   const handleClick = () => {
-    window.open("https://api.whatsapp.com/send?phone=5493413557436", "_blank");
+    window.open("https://api.whatsapp.com/", "_blank");
   };
 
   return (

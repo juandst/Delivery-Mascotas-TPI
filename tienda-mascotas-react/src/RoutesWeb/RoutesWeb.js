@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ProductAlta from "../pages/ProductAlta";
 import ProductEdit from "../pages/ProductEdit";
+import SearchPage from "../pages/SearchPage";
 import NetContext from "../context/NetContext";
 import { useContext } from "react";
 
@@ -16,6 +17,7 @@ const RoutesWeb = () => {
       <Route path="/" element={<Home />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/product/:id" element={<ProductDetail />} />
+      <Route path="search/:params" element={<SearchPage />} />
       {!context.login && (
         <>
           <Route path="/login" element={<Login />} />

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button, Card, Container, Row, Col } from "react-bootstrap";
 import BuyButton from "./BuyButton";
 
-export default function ProductItemIfLogin({ id }) {
+const ProductItemIfLogin = ({ id }) => {
   const context = useContext(NetContext);
   return (
     <>
@@ -12,9 +12,6 @@ export default function ProductItemIfLogin({ id }) {
         <Card.Footer>
           <Container>
             <Row className="justify-content-md-center">
-              <Col>
-                <BuyButton />
-              </Col>
               {context.isAdmin && (
                 <Col>
                   <Button variant="warning" as={Link} to={"/product/edit/" + id}>
@@ -22,10 +19,13 @@ export default function ProductItemIfLogin({ id }) {
                   </Button>
                 </Col>
               )}
+              <Col>{!context.isAdmin && <BuyButton />}</Col>
             </Row>
           </Container>
         </Card.Footer>
       )}
     </>
   );
-}
+};
+
+export default ProductItemIfLogin;

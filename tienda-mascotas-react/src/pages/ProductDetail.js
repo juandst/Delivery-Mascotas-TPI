@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ProductDetailCard from "../components/products/items/ProductDetailCard";
 
-export default function ProductDetail() {
+const ProductDetail = () => {
   const [product, setProduct] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -29,4 +29,6 @@ export default function ProductDetail() {
       {product && <ProductDetailCard product={product} />}
     </>
   );
-}
+};
+
+export default ProductDetail;

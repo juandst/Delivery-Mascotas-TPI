@@ -1,6 +1,6 @@
 import { Spinner } from "react-bootstrap";
 
-export default function Loading() {
+const Loading = () => {
   return (
     <div className="loading">
       <Spinner animation="border" variant="warning" style={{ height: "100px", width: "100px" }} />
@@ -9,4 +9,6 @@ export default function Loading() {
       </p>
     </div>
   );
-}
+};
+
+export default Loading;

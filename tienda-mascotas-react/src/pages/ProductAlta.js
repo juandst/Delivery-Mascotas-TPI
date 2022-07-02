@@ -6,11 +6,10 @@ import { Link } from "react-router-dom";
 import { Card, Button, Form } from "react-bootstrap";
 import { createProduct } from "../services/ProductServices";
 
-export default function ProductAlta() {
+const ProductAlta = () => {
   const [datos, setDatos] = useState({ name: "", price: "", image: "", description: "" });
   const [alert, setAlert] = useState({ variant: "", text: "" });
   const [spinner, setSpinner] = useState(false);
-  let errFlag;
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -24,7 +23,7 @@ export default function ProductAlta() {
 
     // validacion
 
-    errFlag = true;
+    let errFlag = true;
     if (datos.name === "") {
       setAlert({ variant: "danger", text: "El campo nombre es obligatorio." });
       return;
@@ -82,4 +81,6 @@ export default function ProductAlta() {
       </Card>
     </>
   );
-}
+};
+
+export default ProductAlta;

@@ -1,7 +1,7 @@
 import { Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function NavBarBrand() {
+const NavBarBrand = () => {
   return (
     <Navbar.Brand as={Link} to={"/"} style={{ color: "black" }}>
       <img
@@ -14,4 +14,6 @@ export default function NavBarBrand() {
       DELIVERY MASCOTAS
     </Navbar.Brand>
   );
-}
+};
+
+export default NavBarBrand;

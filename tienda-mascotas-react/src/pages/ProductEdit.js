@@ -6,11 +6,12 @@ import FormGroup from "../components/forms/FormGroup";
 import AlertCustom from "../components/forms/AlertCustom";
 import ButtonWithLoading from "../components/forms/ButtonWithLoading";
 
-export default function ProductEdit() {
+const ProductEdit = () => {
   const id = useParams().id;
   const [datos, setDatos] = useState({ name: "", price: "", image: "", description: "" });
   const [alert, setAlert] = useState({ variant: "", text: "" });
   const [spinner, setSpinner] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
   useEffect(() => {
     getProduct(id).then((doc) => {
       setDatos(doc.data());
@@ -26,6 +27,7 @@ export default function ProductEdit() {
   };
 
   const handleSubmit = (e) => {
+    console.log(isDeleted);
     e.preventDefault();
     setSpinner(true);
     console.log(datos);
@@ -43,11 +45,15 @@ export default function ProductEdit() {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    deleteProduct(id)
-      .then(() => {
-        setAlert({ variant: "success", text: "Producto eliminado con exito" });
-      })
-      .catch((err) => setAlert({ variant: "danger", text: "Error: " + err }));
+    if (window.confirm("¿Está seguro de eliminar el producto?")) {
+      e.target.disabled = true;
+      deleteProduct(id)
+        .then(() => {
+          setAlert({ variant: "success", text: "Producto eliminado con exito" });
+          setIsDeleted(true);
+        })
+        .catch((err) => setAlert({ variant: "danger", text: "Error: " + err }));
+    }
   };
 
   return (
@@ -59,26 +65,30 @@ export default function ProductEdit() {
       </Link>
       <Card style={{ width: "80%", margin: "auto", marginTop: "50px" }}>
         <Card.Body>
-          <Form onSubmit={handleSubmit}>
-            <FormGroup name="name" type="text" value={datos.name} onChange={handleChange}>
-              Nombre:
-            </FormGroup>
-            <FormGroup name="price" type="number" value={datos.price} onChange={handleChange}>
-              Precio:
-            </FormGroup>
-            <FormGroup name="image" type="url" value={datos.image} onChange={handleChange}>
-              Imagen:
-            </FormGroup>
-            <Form.Label>Descripción: </Form.Label>
-            <Form.Control as="textarea" rows={3} name="description" type="text" value={datos.description} onChange={handleChange} />
-            <ButtonWithLoading text="Guardar" loading={spinner} variant="warning" type="submit" />
-            <Button variant="warning" onClick={handleDelete} style={{ marginTop: "10px", marginLeft: "10px" }}>
-              Eliminar
-            </Button>
-          </Form>
+          {!isDeleted && (
+            <Form onSubmit={handleSubmit}>
+              <FormGroup name="name" type="text" value={datos.name} onChange={handleChange}>
+                Nombre:
+              </FormGroup>
+              <FormGroup name="price" type="number" value={datos.price} onChange={handleChange}>
+                Precio:
+              </FormGroup>
+              <FormGroup name="image" type="url" value={datos.image} onChange={handleChange}>
+                Imagen:
+              </FormGroup>
+              <Form.Label>Descripción: </Form.Label>
+              <Form.Control as="textarea" rows={3} name="description" type="text" value={datos.description} onChange={handleChange} />
+              <ButtonWithLoading text="Guardar" loading={spinner} variant="warning" type="submit" />
+              <Button variant="warning" onClick={handleDelete} style={{ marginTop: "10px", marginLeft: "10px" }}>
+                Eliminar
+              </Button>
+            </Form>
+          )}
           <AlertCustom variant={alert.variant} text={alert.text} />
         </Card.Body>
       </Card>
     </>
   );
-}
+};
+
+export default ProductEdit;

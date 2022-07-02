@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Button, FormControl } from "react-bootstrap";
 
-export default function SearchBar() {
+const SearchBar = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -15,7 +15,7 @@ export default function SearchBar() {
     setSearch("");
   };
   return (
-    <Form className="d-flex">
+    <Form className="d-flex" onSubmit={handleSubmit}>
       <FormControl type="search" placeholder="Buscar..." className="me-2" value={search} onChange={handleChange} />
       <Button variant="outline-warning" onClick={handleSubmit}>
         <img
@@ -26,4 +26,6 @@ export default function SearchBar() {
       </Button>
     </Form>
   );
-}
+};
+
+export default SearchBar;

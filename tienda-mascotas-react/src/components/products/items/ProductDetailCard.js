@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function ProductDetailCard({ product }) {
+const ProductDetailCard = ({ product }) => {
   const context = useContext(NetContext);
   return (
     <>
@@ -25,15 +25,18 @@ export default function ProductDetailCard({ product }) {
             </Col>
           </Row>
           <Card.Footer>$ {product.data().price}</Card.Footer>
-          {(context.login && <BuyButton />) || (
-            <Link to={"/login"}>
-              <Button variant="warning" style={{ marginTop: "10px" }}>
-                INICIAR SESIÓN
-              </Button>
-            </Link>
-          )}
+          {(context.login && !context.isAdmin && <BuyButton />) ||
+            (!context.isAdmin && (
+              <Link to={"/login"}>
+                <Button variant="warning" style={{ marginTop: "10px" }}>
+                  INICIAR SESIÓN
+                </Button>
+              </Link>
+            ))}
         </Card.Body>
       </Card>
     </>
   );
-}
+};
+
+export default ProductDetailCard;

@@ -20,6 +20,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    e.target.disabled = true;
     setSpinner(true);
     let email = form.email;
     let password = form.password;
@@ -34,6 +35,7 @@ const Login = () => {
         console.log("Error: ", error);
         setSpinner(false);
         setAlert({ variant: "danger", text: "Ha ocurrido un error: " + error });
+        e.target.disabled = false;
       });
   };
   const handleChange = (e) => {

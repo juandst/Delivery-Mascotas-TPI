@@ -5,6 +5,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import NavBarBrand from "../nav/NavBarBrand";
 import ExitButton from "./ExitButton";
 import SearchBar from "../nav/SearchBar";
+import ImageNav from "../nav/ImageNav";
 
 const Menu = () => {
   const context = useContext(NetContext);
@@ -17,7 +18,14 @@ const Menu = () => {
             <SearchBar />
           </Nav>
         </Container>
-        {context.isAdmin && <OptionsMenu opc={{ label: "Alta", path: "/product/alta" }} />}
+        {context.isAdmin && (
+          <OptionsMenu
+            opc={{
+              label: <ImageNav src="https://cdn.discordapp.com/attachments/989026778741899287/992609380199579668/add.png" alt="Alta" />,
+              path: "/product/alta",
+            }}
+          />
+        )}
 
         {!context.login && (
           <>
@@ -25,15 +33,7 @@ const Menu = () => {
             <OptionsMenu opc={{ label: "Registro", path: "/register" }} />
           </>
         )}
-        {context.login && (
-          <ExitButton logOut={context.logoutUser}>
-            <img
-              src="https://cdn.discordapp.com/attachments/989026778741899287/991827369532862545/sign-out.png"
-              alt="Salir"
-              style={{ width: "25px", height: "auto" }}
-            />
-          </ExitButton>
-        )}
+        {context.login && <ExitButton logOut={context.logoutUser}>Cerrar sesión</ExitButton>}
       </Navbar>
     </Nav>
   );

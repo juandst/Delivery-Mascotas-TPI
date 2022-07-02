@@ -16,31 +16,35 @@ const Register = () => {
   });
   const [alert, setAlert] = useState({ variant: "", text: "" });
   const [spinner, setSpinner] = useState(false);
-  let errFlag = false;
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    e.target.disabled = true;
     // validacion
 
-    errFlag = true;
+    let errFlag = true;
     if (form.nombre === "") {
       setAlert({ variant: "danger", text: "El campo nombre es obligatorio." });
+      e.target.disabled = false;
       return;
     } else if (form.apellido === "") {
       setAlert({ variant: "danger", text: "El campo apellido es obligatorio." });
+      e.target.disabled = false;
       return;
     } else if (form.email === "") {
       setAlert({ variant: "danger", text: "El campo email es obligatorio." });
+      e.target.disabled = false;
       return;
     } else if (form.password === "") {
       setAlert({ variant: "danger", text: "Por favor, ingrese una contraseña" });
+      e.target.disabled = false;
       return;
     }
 
     if (form.password.length < 6) {
       setAlert({ variant: "danger", text: "La contraseña debe tener 6 caracteres como mínimo" });
+      e.target.disabled = false;
       return;
     }
     errFlag = false;
@@ -60,18 +64,20 @@ const Register = () => {
             setAlert({ variant: "success", text: "Usuario creado con éxito, redirigiendo a la página de inicio de sesión..." });
             setTimeout(() => {
               navigate("/login");
-            }, 2000);
+            }, 3000);
           })
           .catch((err) => {
             console.log(err);
             setSpinner(false);
             setAlert({ variant: "danger", text: "Error: " + err });
+            e.target.disabled = false;
           });
       })
       .catch((error) => {
         console.log("Error: ", error);
         setSpinner(false);
         setAlert({ variant: "danger", text: "Error: " + error });
+        e.target.disabled = false;
       });
   };
   const handleChange = (e) => {
@@ -113,4 +119,5 @@ const Register = () => {
     </Card>
   );
 };
+
 export default Register;
